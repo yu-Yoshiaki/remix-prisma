@@ -7,6 +7,15 @@
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx"
   ],
+  "exclude": [
+    "node_modules",
+    ".vercel",
+    ".next",
+    ".redwood",
+    ".remix",
+    ".vite",
+    "tailwind.css"
+  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["@remix-run/node", "vite/client"],

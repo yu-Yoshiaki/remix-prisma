@@ -22,7 +22,8 @@ module.exports = {
   ignorePatterns: ["!**/.server", "!**/.client"],
 
   // Base config
-  extends: ["eslint:recommended"],
+  extends: ["eslint:recommended", "plugin:tailwindcss/recommended","plugin:prettier/recommended"],
+  plugins: ["tailwindcss"],
 
   overrides: [
     // React
@@ -34,6 +35,7 @@ module.exports = {
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "prettier"
       ],
       settings: {
         react: {

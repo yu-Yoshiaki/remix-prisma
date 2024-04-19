@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 // eslint-disable-next-line import/no-unresolved
-import stylesheet from "./tailwind.css"; // <- 新規追加
+import stylesheet from "./tailwind.css?url"; // <- 新規追加
 import { ActionFunctionArgs, LinksFunction } from "@remix-run/node";
 import { Header } from "./components/Header";
 import { authenticator } from "./services/auth.server";
@@ -17,10 +17,9 @@ export const links: LinksFunction = () => [
   // ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []), // <- 既存のコードをコメントアウト
 ];
 
-export const action = async ({request}: ActionFunctionArgs) => {
-  return await authenticator.logout(request, { redirectTo: "/auth/login/"})
-}
-
+export const action = async ({ request }: ActionFunctionArgs) => {
+  return await authenticator.logout(request, { redirectTo: "/auth/login/" });
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -34,11 +33,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         <Form method="POST">
-          <button type="submit" name="action" value="logout">Logout</button>
+          <button type="submit" name="action" value="logout">
+            Logout
+          </button>
         </Form>
-        
-        <div className="bg-[#FFF7EA]">
-        {children}</div>
+
+        <div className="bg-[#FFF7EA]">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>
